@@ -4,9 +4,11 @@ const options = {
 			level: 2
 };
 
+
+let index = 1;
+
 // 지도를 생성합니다
 const map = new kakao.maps.Map(container, options);
-
 
 // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
 const positions = [
@@ -404,8 +406,10 @@ const positions = [
 
 for (let i = 0; i < positions.length; i ++) {
     // 마커를 생성합니다
+    let isOpen = false;
     const marker = new kakao.maps.Marker({
         map: map, // 마커를 표시할 지도
+        removable: true,
         position: positions[i].latlng // 마커의 위치
     });
     // 마커에 표시할 인포윈도우를 생성합니다 
@@ -417,8 +421,8 @@ for (let i = 0; i < positions.length; i ++) {
     // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
     // 이벤트 리스너로는 클로저를 만들어 등록합니다 
     // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+    kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker, infowindow));
+    kakao.maps.event.addListener(map, 'click', makeOutListener(infowindow));
 }
 // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
 function makeOverListener(map, marker, infowindow) {
@@ -433,15 +437,16 @@ function makeOutListener(infowindow) {
     };
 }
 
-//버튼 누르면 꽃가루
-const button = document.getElementById('button');
-    button.addEventListener('click', () => {
+// //버튼 누르면 꽃가루
+// const button = document.getElementById('button');
+//     button.addEventListener('click', () => {
+//         index++;
+//         console.log(index % 3);
+//         const canvas = document.getElementById('your_custom_canvas_id')
+//         const jsConfetti = new JSConfetti({ canvas })
 
-        const canvas = document.getElementById('your_custom_canvas_id')
-        const jsConfetti = new JSConfetti({ canvas })
-
-        jsConfetti.addConfetti({
-            emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
-        })
-    }
-)
+//         jsConfetti.addConfetti({
+//             emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
+//         })
+//     }
+// )
