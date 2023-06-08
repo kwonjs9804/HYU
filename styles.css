@@ -9,3 +9,95 @@ html, body {
     width: 100%;
     height: 100%;
 }
+
+#logo {
+    position: absolute;
+    transform: scale(1.5);
+    transform-origin: left top;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+}
+
+.hide {
+    display: none;
+}
+
+.button {
+    width: 70px;
+    height: 70px;
+    border-radius: 60px;
+    color:white;
+    font-size: 50px;
+    background-color: blue;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+}
+.button:active{
+    background-color: red;
+}
+
+.overlaybox {
+    position:relative;
+    width:100%;
+    height:100%;
+    color: #2b2d36;
+    padding: 5px 5px;
+}
+
+.overlaybox div, ul {
+    overflow:hidden;
+    margin:0;
+    padding:0;
+}
+
+.overlaybox li {
+    list-style: none;
+}
+
+.overlaybox .boxtitle {
+    color:#2b2d36;
+    font-size:26px;
+    font-weight:bold;
+    margin-bottom:5px;
+    margin-left: 10px;
+}
+
+.overlaybox ul {
+    width:100%;
+    height:100%;
+    margin-left: -8px;
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+}
+.column {
+    margin-left: 30%;
+    font-size: 18px;
+}
+.overlaybox li {
+    position:relative;
+    margin-bottom: 2px;
+    margin-left: 8px;
+    background:#2b2d36;
+    padding:8px 10px;
+    color:#Ffffff;
+    line-height: 1;
+}
+
+.overlaybox li .span {
+    display:inline-block;
+}
+.overlaybox li .floor {
+    font-size:13px;
+    font-weight:bold;
+}
+.overlaybox li .title {
+    font-size:13px;
+    padding-right: 50px;
+}
+
+.overlaybox li .emoji {
+    position:absolute;margin-top:1px;right:5%;font-size:13px;
+}
